@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "math.h"
+#include <math.h>
 
 void print();
 void tudo();
@@ -108,7 +108,8 @@ void tudo(int i){
 		met[p].dist += sqrt( pow( ( teste[p].g - exemplo.g ),2) );
 		met[p].dist += sqrt( pow( ( teste[p].h - exemplo.h ),2) );
 		met[p].index = p;
-		
+		printf("%d\n",met[p].index);
+		printf("%f\n",met[p].dist);
 		}
 	
 	
