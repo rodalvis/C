@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 void print();
 void tudo();
@@ -36,7 +37,7 @@ int main(){
 	  exemplo.f = 33.6;
 	  exemplo.g = 0.627;
 	  exemplo.h = 50;
-	 // exemplo.classe= "sem";
+	  //exemplo.classe= "sem";
 
 
 	FILE *arquivo;
@@ -108,9 +109,43 @@ void tudo(int i){
 		met[p].dist += sqrt( pow( ( teste[p].g - exemplo.g ),2) );
 		met[p].dist += sqrt( pow( ( teste[p].h - exemplo.h ),2) );
 		met[p].index = p;
-		printf("%d\n",met[p].index);
+		printf("%d\t",met[p].index);
 		printf("%f\n",met[p].dist);
 		}
-	
-	
+	int j,t,m;
+	float aux;
+	for(m =0;m<i;m++){
+	for(j = 0; j< i;j++){
+		if(met[j].dist > met[j+1].dist){
+			aux = met[j].dist;
+			met[j].dist = met[j+1].dist;
+			met[j+1].dist = aux;
+			t = met[j].index;
+			met[j].index = met[j+1].index;
+			met[j+1].index = t;
+			}
+		}	}
+	int tt =0;
+	for(;tt<i;tt++){
+		printf("%d\t",met[tt].index);
+		printf("%f\n",met[tt].dist);}
+		
+		int temp,ii =0, ee =0;
+		for(tt=0; tt<5;tt++){
+			if(strcmp(teste[temp].classe , "tested_positive")){
+				ii++;}
+				else{
+					ee++;}
+			temp = met[tt].index;
+					printf("%1d ",teste[temp].a);
+					printf("%1d ",teste[temp].b);
+					printf("%1d ",teste[temp].c);
+					printf("%1d ",teste[temp].d);
+					printf("%1d ",teste[temp].e);
+					printf("%.2f ",teste[temp].f);
+					printf("%.3f ",teste[temp].g);
+					printf("%1d ",teste[temp].h);
+					printf("%s\n",teste[temp].classe);
+					ii > ee ? printf("tested_positive") : printf("tested_negative");
+			}
 	}
