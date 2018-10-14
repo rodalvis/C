@@ -41,8 +41,8 @@ int main(){
 
 
 	FILE *arquivo;
-	arquivo = fopen("data.txt","r");
-	
+	arquivo = fopen("diabetes.arff","r");
+	system("dir");
 	int i =0;
 	
 	//nt temp=0;
@@ -126,11 +126,13 @@ void tudo(int i){
 			}
 		}	}
 	int tt =0;
+	
 	for(;tt<i;tt++){
 		printf("%d\t",met[tt].index);
 		printf("%f\n",met[tt].dist);}
 		
 		int temp,ii =0, ee =0;
+		printf("Os 5 mais proximos\n");
 		for(tt=0; tt<5;tt++){
 			if(strcmp(teste[temp].classe , "tested_positive")){
 				ii++;}
@@ -146,6 +148,7 @@ void tudo(int i){
 					printf("%.3f ",teste[temp].g);
 					printf("%1d ",teste[temp].h);
 					printf("%s\n",teste[temp].classe);
-					ii > ee ? printf("tested_positive") : printf("tested_negative");
+					
 			}
+	ii < ee ? printf("tested_positive") : printf("tested_negative");
 	}
